@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hugley/common/buttons/dynamic_button.dart';
+import 'package:hugley/common/buttons/scale_button.dart';
+import 'package:hugley/features/auth/screens/create_account.dart';
+import 'package:hugley/features/utils/utils.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -19,6 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
           Image.asset(
             "assets/images/img1.png",
             height: 400.h,
+            width: double.infinity,
             fit: BoxFit.cover,
           ),
           SizedBox(
@@ -28,8 +32,8 @@ class _SplashScreenState extends State<SplashScreen> {
             "Hugley",
             style: TextStyle(
               fontWeight: FontWeight.bold,
-              fontSize: 27.sp,
-              color: Colors.yellow,
+              fontSize: 42.sp,
+              color: Color(0xFFF9547C),
             ),
             textAlign: TextAlign.center,
           ),
@@ -58,30 +62,36 @@ class _SplashScreenState extends State<SplashScreen> {
             height: 20.h,
           ),
           Center(
-            child: Container(
-              height: 80.h,
-              width: 300.w,
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: Colors.purple.shade100,
-                  width: 2,
-                ),
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Center(
-                child: Text(
-                  "Create Account",
-                  style: TextStyle(
-                    fontSize: 21.sp,
+            child: ScaleButton(
+              onTap: () {
+                Utils.go(
+                  context: context,
+                  screen: CreateAccountScreen(),
+                );
+              },
+              child: Container(
+                height: 80.h,
+                width: 300.w,
+                decoration: BoxDecoration(
+                  border: Border.all(
                     color: Colors.purple.shade100,
+                    width: 2,
+                  ),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Center(
+                  child: Text(
+                    "Create Account",
+                    style: TextStyle(
+                      fontSize: 21.sp,
+                      color: Colors.purple.shade100,
+                    ),
                   ),
                 ),
               ),
             ),
           ),
-          SizedBox(
-            height: 40.h,
-          ),
+          Spacer(),
           Text(
             "Privacy Policy",
             style: TextStyle(
@@ -89,7 +99,10 @@ class _SplashScreenState extends State<SplashScreen> {
               color: Colors.purple.shade100,
             ),
             textAlign: TextAlign.center,
-          )
+          ),
+          SizedBox(
+            height: MediaQuery.of(context).padding.bottom + 10,
+          ),
         ],
       ),
     );

@@ -50,9 +50,11 @@ class _OtpScreenState extends State<OtpScreen> {
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(
-          horizontal: 20.w,
+          horizontal: 40.w,
         ),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
               height: 60.h,
@@ -78,7 +80,7 @@ class _OtpScreenState extends State<OtpScreen> {
               length: 4, // Number of PIN boxes
               defaultPinTheme: defaultPinTheme, // Default style for each box
               focusedPinTheme: focusedPinTheme, // Style when a box is focused
-              showCursor: false, // Hide the cursor
+              showCursor: true, // Hide the cursor
               onChanged: (value) {
                 print('Changed: $value'); // Callback when the value changes
               },
@@ -100,6 +102,9 @@ class _OtpScreenState extends State<OtpScreen> {
                     color: Colors.white,
                   ),
                 ),
+                SizedBox(
+                  height: MediaQuery.of(context).padding.bottom + 20,
+                )
               ],
             )
           ],
