@@ -21,7 +21,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              height: 400.h,
+              height: 350.h,
               width: double.infinity,
               decoration: BoxDecoration(
                 image: DecorationImage(
@@ -74,12 +74,12 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                   Text(
                     "Email Address",
                     style: TextStyle(
-                      fontSize: 19.sp,
+                      fontSize: 18.sp,
                       color: Colors.grey,
                     ),
                   ),
                   SizedBox(
-                    height: 5.h,
+                    height: 4.h,
                   ),
                   TextFormField(
                     decoration: InputDecoration(
@@ -111,17 +111,17 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                     ),
                   ),
                   SizedBox(
-                    height: 10.h,
+                    height: 8.h,
                   ),
                   Text(
                     "Telephone Number",
                     style: TextStyle(
-                      fontSize: 19.sp,
+                      fontSize: 18.sp,
                       color: Colors.grey,
                     ),
                   ),
                   SizedBox(
-                    height: 5.h,
+                    height: 4.h,
                   ),
                   TextFormField(
                     decoration: InputDecoration(
@@ -153,17 +153,17 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                     ),
                   ),
                   SizedBox(
-                    height: 10.h,
+                    height: 8.h,
                   ),
                   Text(
                     "UserName",
                     style: TextStyle(
-                      fontSize: 19.sp,
+                      fontSize: 18.sp,
                       color: Colors.grey,
                     ),
                   ),
                   SizedBox(
-                    height: 5.h,
+                    height: 4.h,
                   ),
                   TextFormField(
                     decoration: InputDecoration(
@@ -195,17 +195,17 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                     ),
                   ),
                   SizedBox(
-                    height: 10.h,
+                    height: 8.h,
                   ),
                   Text(
                     "Create Password",
                     style: TextStyle(
-                      fontSize: 19.sp,
+                      fontSize: 18.sp,
                       color: Colors.grey,
                     ),
                   ),
                   SizedBox(
-                    height: 5.h,
+                    height: 4.h,
                   ),
                   TextFormField(
                     decoration: InputDecoration(
@@ -237,7 +237,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                     ),
                   ),
                   SizedBox(
-                    height: 10.h,
+                    height: 8.h,
                   ),
                   Center(
                     child: SizedBox(
@@ -269,20 +269,20 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                     children: [
                       Image.asset(
                         "assets/icons/google.png",
-                        height: 50.h,
-                        width: 50.w,
+                        height: 40.h,
+                        width: 40.w,
                         fit: BoxFit.cover,
                       ),
                       Image.asset(
-                        "assets/icons/google.png",
-                        height: 50.h,
-                        width: 50.w,
+                        "assets/icons/facebook.png",
+                        height: 40.h,
+                        width: 40.w,
                         fit: BoxFit.cover,
                       ),
                       Image.asset(
-                        "assets/icons/google.png",
-                        height: 50.h,
-                        width: 50.w,
+                        "assets/icons/apple.png",
+                        height: 40.h,
+                        width: 40.w,
                         fit: BoxFit.cover,
                       ),
                     ],

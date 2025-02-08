@@ -51,7 +51,7 @@ class _SplashScreenState extends State<SplashScreen> {
           Center(
             child: SizedBox(
               width: 300.w,
-              height: 80.h,
+              height: 70.h,
               child: DynamicButton.fromText(
                 text: "Sign in",
                 onPressed: () {},
@@ -59,7 +59,7 @@ class _SplashScreenState extends State<SplashScreen> {
             ),
           ),
           SizedBox(
-            height: 20.h,
+            height: 30.h,
           ),
           Center(
             child: ScaleButton(
@@ -70,7 +70,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 );
               },
               child: Container(
-                height: 80.h,
+                height: 70.h,
                 width: 300.w,
                 decoration: BoxDecoration(
                   border: Border.all(

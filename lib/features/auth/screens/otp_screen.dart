@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hugley/common/buttons/scale_button.dart';
+import 'package:hugley/features/profile_section/select_country_screen.dart';
+import 'package:hugley/features/utils/utils.dart';
 import 'package:pinput/pinput.dart';
 
 class OtpScreen extends StatefulWidget {
@@ -13,8 +16,8 @@ class _OtpScreenState extends State<OtpScreen> {
   @override
   Widget build(BuildContext context) {
     final defaultPinTheme = PinTheme(
-      width: 50, // Width of each box
-      height: 50, // Height of each box
+      width: 70, // Width of each box
+      height: 60, // Height of each box
       decoration: BoxDecoration(
         border: Border.all(
           color: Colors.pink, // Pink border color
@@ -24,7 +27,7 @@ class _OtpScreenState extends State<OtpScreen> {
             8), // Small border radius for slightly rounded corners
       ),
       textStyle: TextStyle(
-        fontSize: 20,
+        fontSize: 22,
         fontWeight: FontWeight.bold,
         color: Colors.pink, // Pink text color
       ),
@@ -92,20 +95,28 @@ class _OtpScreenState extends State<OtpScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Container(
-                  height: 60.h,
-                  width: 60.w,
-                  decoration:
-                      BoxDecoration(shape: BoxShape.circle, color: Colors.pink),
-                  child: Icon(
-                    Icons.arrow_forward_outlined,
-                    color: Colors.white,
+                ScaleButton(
+                  onTap: () {
+                    Utils.go(context: context, screen: SelectCountryScreen());
+                  },
+                  child: Container(
+                    height: 60.h,
+                    width: 60.w,
+                    decoration: BoxDecoration(
+                        shape: BoxShape.circle, color: Colors.pink),
+                    child: Icon(
+                      Icons.arrow_forward_outlined,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
                 SizedBox(
                   height: MediaQuery.of(context).padding.bottom + 20,
                 )
               ],
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).padding.bottom + 20.h,
             )
           ],
         ),

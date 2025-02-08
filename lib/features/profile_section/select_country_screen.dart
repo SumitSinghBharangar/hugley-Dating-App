@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hugley/common/buttons/dynamic_button.dart';
+import 'package:hugley/features/profile_section/select_gender_screen.dart';
+import 'package:hugley/features/utils/utils.dart';
 
 class SelectCountryScreen extends StatefulWidget {
   const SelectCountryScreen({super.key});
@@ -12,6 +14,7 @@ class SelectCountryScreen extends StatefulWidget {
 class _SelectCountryScreenState extends State<SelectCountryScreen> {
   final TextEditingController _searchController = TextEditingController();
   String searchQuery = '';
+  String selected = "";
 
   final List<Map<String, String>> countries = [
     {"name": "Algeria", "flag": "🇩🇿"},
@@ -66,9 +69,8 @@ class _SelectCountryScreenState extends State<SelectCountryScreen> {
                   hintText: 'Search',
                   prefixIcon: const Icon(Icons.search, color: Colors.grey),
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                    borderSide: BorderSide.none,
-                  ),
+                      borderRadius: BorderRadius.circular(12),
+                      borderSide: BorderSide(color: Colors.purple)),
                   contentPadding: const EdgeInsets.symmetric(
                     horizontal: 16,
                     vertical: 14,
@@ -84,11 +86,24 @@ class _SelectCountryScreenState extends State<SelectCountryScreen> {
                 itemCount: filteredCountries.length,
                 itemBuilder: (context, index) {
                   final country = filteredCountries[index];
-                  return Container(
+                  return AnimatedContainer(
+                    duration: Duration(milliseconds: 400),
                     margin: const EdgeInsets.only(bottom: 8),
                     decoration: BoxDecoration(
-                      border: Border.all(color: Colors.grey[200]!),
+                      border: Border.all(color: Colors.grey[400]!),
                       borderRadius: BorderRadius.circular(12),
+                      gradient: LinearGradient(
+                        begin: Alignment.topLeft, // Start from top-left
+                        end: Alignment.bottomRight, // End at bottom-right
+                        colors: [
+                          country["name"] == selected
+                              ? Colors.purple
+                              : Colors.transparent, // Violet color
+                          country["name"] == selected
+                              ? Colors.pink
+                              : Colors.transparent, // Pink color
+                        ],
+                      ),
                     ),
                     child: ListTile(
                       contentPadding: const EdgeInsets.symmetric(
@@ -107,6 +122,9 @@ class _SelectCountryScreenState extends State<SelectCountryScreen> {
                         ),
                       ),
                       onTap: () {
+                        setState(() {
+                          selected = country["name"]!;
+                        });
                         // Handle country selection
                         print('Selected country: ${country["name"]}');
                       },
@@ -117,11 +135,16 @@ class _SelectCountryScreenState extends State<SelectCountryScreen> {
             ),
             Center(
               child: SizedBox(
-                height: 80.h,
+                height: 60.h,
                 width: 300.w,
                 child: DynamicButton.fromText(
                   text: "Next",
-                  onPressed: () {},
+                  onPressed: () {
+                    Utils.go(
+                      context: context,
+                      screen: SelectGenderScreen(),
+                    );
+                  },
                 ),
               ),
             ),

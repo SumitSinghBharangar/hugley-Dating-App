@@ -54,7 +54,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
           ),
           Center(
             child: SizedBox(
-              height: 80.h,
+              height: 70.h,
               width: 300.w,
               child: DynamicButton.fromText(
                 text: "User",
@@ -68,7 +68,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
             ),
           ),
           SizedBox(
-            height: 40.h,
+            height: 45.h,
           ),
           Center(
             child: ScaleButton(
@@ -79,7 +79,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                 );
               },
               child: Container(
-                height: 80.h,
+                height: 70.h,
                 width: 300.w,
                 decoration: BoxDecoration(
                   border: Border.all(
