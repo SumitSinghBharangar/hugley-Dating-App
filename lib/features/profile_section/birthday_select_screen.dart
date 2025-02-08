@@ -3,6 +3,8 @@ import 'package:flutter/services.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hugley/common/buttons/scale_button.dart';
+import 'package:hugley/features/profile_section/DisabilitiesSelectionScreen.dart';
+import 'package:hugley/features/utils/utils.dart';
 
 class BirthdaySelectScreen extends StatefulWidget {
   const BirthdaySelectScreen({super.key});
@@ -232,7 +234,12 @@ class _BirthdaySelectScreenState extends State<BirthdaySelectScreen> {
                         width: 20.w,
                       ),
                       ScaleButton(
-                        onTap: () {},
+                        onTap: () {
+                          Utils.go(
+                            context: context,
+                            screen: DisabilitiesSelectionScreen(),
+                          );
+                        },
                         child: Container(
                           height: 60.h,
                           width: 60.w,
