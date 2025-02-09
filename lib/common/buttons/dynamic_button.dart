@@ -94,8 +94,8 @@ class _DynamicButtonState extends State<DynamicButton> {
                 begin: Alignment.topLeft, // Start from top-left
                 end: Alignment.bottomRight, // End at bottom-right
                 colors: [
-                  Colors.purple, // Violet color
-                  Colors.pink, // Pink color
+                  Color(0xFF9C27B0), // Purple
+                  Color(0xFFE91E63), // Pink color
                 ],
               ),
               borderRadius: BorderRadius.circular(10),

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hugley/common/buttons/dynamic_button.dart';
+import 'package:hugley/features/profile_section/photo_selection_screen.dart';
+import 'package:hugley/features/utils/utils.dart';
 
 class DisabilitiesSelectionScreen extends StatefulWidget {
   const DisabilitiesSelectionScreen({super.key});
@@ -90,7 +92,6 @@ class _DisabilitiesSelectionScreenState
               ),
             ),
             const SizedBox(height: 16),
-            // Search Bar
             TextField(
               controller: _searchController,
               decoration: InputDecoration(
@@ -106,75 +107,63 @@ class _DisabilitiesSelectionScreenState
               ),
             ),
             const SizedBox(height: 16),
-            // Grid of disabilities
             Expanded(
-              child: GridView.builder(
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  childAspectRatio: 2.5,
-                  crossAxisSpacing: 8,
-                  mainAxisSpacing: 8,
-                ),
-                itemCount: filteredDisabilities.length,
-                itemBuilder: (context, index) {
-                  final disability = filteredDisabilities[index];
-                  final isSelected = selectedDisabilities.contains(disability);
-
-                  return InkWell(
-                    onTap: () {
-                      setState(() {
-                        if (isSelected) {
-                          selectedDisabilities.remove(disability);
-                        } else {
-                          selectedDisabilities.add(disability);
-                        }
-                      });
-                    },
-                    child: Container(
-                      decoration: BoxDecoration(
+              child: SingleChildScrollView(
+                child: Wrap(
+                  spacing: 8,
+                  runSpacing: 8,
+                  children: filteredDisabilities.map((disability) {
+                    final isSelected =
+                        selectedDisabilities.contains(disability);
+                    return FilterChip(
+                      label: Text(
+                        disability,
+                        style: TextStyle(
+                          color: isSelected ? Colors.white : Colors.black87,
+                          fontSize: 12,
+                        ),
+                      ),
+                      selected: isSelected,
+                      onSelected: (selected) {
+                        setState(() {
+                          if (selected) {
+                            selectedDisabilities.add(disability);
+                          } else {
+                            selectedDisabilities.remove(disability);
+                          }
+                        });
+                      },
+                      backgroundColor: Colors.transparent,
+                      selectedColor: Colors.pink,
+                      checkmarkColor: Colors.white,
+                      shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8),
-                        border: Border.all(
+                        side: BorderSide(
                           color: isSelected
                               ? const Color(0xFFE75799)
                               : Colors.grey[300]!,
                         ),
-                        gradient: LinearGradient(
-                          begin: Alignment.topLeft, // Start from top-left
-                          end: Alignment.bottomRight, // End at bottom-right
-                          colors: [
-                            isSelected
-                                ? Colors.purple
-                                : Colors.transparent, // Violet color
-                            isSelected
-                                ? Colors.pink
-                                : Colors.transparent, // Pink color
-                          ],
-                        ),
                       ),
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 5, vertical: 0),
-                      child: Center(
-                        child: Text(
-                          disability,
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: isSelected ? Colors.white : Colors.black87,
-                            fontSize: 12,
-                          ),
-                        ),
+                        horizontal: 12,
+                        vertical: 8,
                       ),
-                    ),
-                  );
-                },
+                    );
+                  }).toList(),
+                ),
               ),
             ),
-            // Next button
             SizedBox(
               width: double.infinity,
               height: 60.h,
               child: DynamicButton.fromText(
                 text: "Next",
-                onPressed: () {},
+                onPressed: () {
+                  Utils.go(
+                    context: context,
+                    screen: PhotoSelectionScreen(),
+                  );
+                },
               ),
             ),
           ],
