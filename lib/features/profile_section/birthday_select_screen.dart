@@ -40,7 +40,7 @@ class _BirthdaySelectScreenState extends State<BirthdaySelectScreen> {
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage(
-                    "assets/images/img1.png",
+                    "assets/images/img2.png",
                   ),
                   fit: BoxFit.cover,
                 ),

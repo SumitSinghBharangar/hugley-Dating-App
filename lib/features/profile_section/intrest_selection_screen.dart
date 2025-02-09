@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:hugley/common/buttons/dynamic_button.dart';
+import 'package:hugley/features/profile_section/drink_selection_screen.dart';
+import 'package:hugley/features/utils/utils.dart';
 
 class InterestsSelectionScreen extends StatefulWidget {
   const InterestsSelectionScreen({super.key});
@@ -34,7 +37,7 @@ class _InterestsSelectionScreenState extends State<InterestsSelectionScreen> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back_ios_new),
           onPressed: () => Navigator.pop(context),
           color: Colors.black,
         ),
@@ -120,40 +123,14 @@ class _InterestsSelectionScreenState extends State<InterestsSelectionScreen> {
               ),
             ),
             const SizedBox(height: 20),
-            Container(
-              width: double.infinity,
-              height: 50,
-              decoration: BoxDecoration(
-                gradient: const LinearGradient(
-                  colors: [
-                    Color(0xFF9C27B0), // Purple
-                    Color(0xFFE91E63), // Pink
-                  ],
-                ),
-                borderRadius: BorderRadius.circular(25),
-              ),
-              child: ElevatedButton(
-                onPressed: selectedInterests.isNotEmpty
-                    ? () {
-                        // Handle next button press
-                      }
-                    : null,
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.transparent,
-                  shadowColor: Colors.transparent,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(25),
-                  ),
-                ),
-                child: const Text(
-                  'Next',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-              ),
+            DynamicButton.fromText(
+              text: "Next",
+              onPressed: () {
+                Utils.go(
+                  context: context,
+                  screen: DrinkSelectionScreen(),
+                );
+              },
             ),
           ],
         ),
