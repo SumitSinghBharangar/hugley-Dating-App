@@ -1,22 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hugley/common/buttons/dynamic_button.dart';
 import 'package:hugley/common/buttons/scale_button.dart';
+import 'package:hugley/features/auth/profile_section/birthday_select_screen.dart';
+import 'package:hugley/features/utils/utils.dart';
 
-class DrinkSelectionScreen extends StatefulWidget {
-  const DrinkSelectionScreen({super.key});
+class SelectGenderScreen extends StatefulWidget {
+  const SelectGenderScreen({super.key});
 
   @override
-  State<DrinkSelectionScreen> createState() => _DrinkSelectionScreenState();
+  State<SelectGenderScreen> createState() => _SelectGenderScreenState();
 }
 
-class _DrinkSelectionScreenState extends State<DrinkSelectionScreen> {
+class _SelectGenderScreenState extends State<SelectGenderScreen> {
   String selected = "";
-  final List<String> habit = [
-    "Frequently",
-    "Socially",
-    "Rarely",
-    "Never",
-    "When sober"
+  final List<String> gender = [
+    "Women",
+    "Men",
+    "Chomie angther",
   ];
   @override
   Widget build(BuildContext context) {
@@ -26,26 +27,26 @@ class _DrinkSelectionScreenState extends State<DrinkSelectionScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            height: 300.h,
+            height: 400.h,
             width: double.infinity,
             decoration: BoxDecoration(
               image: DecorationImage(
                 image: AssetImage(
-                  "assets/images/img3.png",
+                  "assets/images/img2.png",
                 ),
                 fit: BoxFit.cover,
               ),
             ),
             child: Padding(
               padding: EdgeInsets.symmetric(
-                horizontal: 20.w,
+                horizontal: 22.w,
               ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(
-                    height: MediaQuery.of(context).padding.top + 10.h,
+                    height: MediaQuery.of(context).padding.top + 20.h,
                   ),
                   ScaleButton(
                     onTap: () {
@@ -55,11 +56,13 @@ class _DrinkSelectionScreenState extends State<DrinkSelectionScreen> {
                       height: 30.h,
                       width: 30.w,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
                         color: Colors.white,
+                        borderRadius: BorderRadius.circular(8),
                       ),
                       child: Center(
-                        child: Icon(Icons.arrow_back_ios_new),
+                        child: Icon(
+                          Icons.arrow_back_ios_new,
+                        ),
                       ),
                     ),
                   ),
@@ -68,39 +71,33 @@ class _DrinkSelectionScreenState extends State<DrinkSelectionScreen> {
               ),
             ),
           ),
+          SizedBox(
+            height: 20.h,
+          ),
           Padding(
             padding: EdgeInsets.symmetric(
               horizontal: 30.w,
             ),
             child: Text(
-              "Do you Drink?",
+              "I am a",
               style: TextStyle(
                 fontSize: 33.sp,
-                color: Colors.purple,
-                fontWeight: FontWeight.w400,
+                color: Color(0xFFC08FD6),
+                fontWeight: FontWeight.bold,
               ),
             ),
           ),
-          Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: 30.w,
-            ),
-            child: Text(
-              "Select the option that best describes drinking habit.",
-              style: TextStyle(color: Colors.grey),
-            ),
-          ),
           SizedBox(
-            height: 10.h,
+            height: 20.h,
           ),
           Expanded(
             child: ListView.builder(
-              itemCount: habit.length,
+              itemCount: gender.length,
               itemBuilder: (context, index) {
                 return AnimatedContainer(
                   margin: EdgeInsets.symmetric(
                     horizontal: 20.w,
-                    vertical: 5.h,
+                    vertical: 7.h,
                   ),
                   duration: Duration(milliseconds: 400),
                   decoration: BoxDecoration(
@@ -110,10 +107,10 @@ class _DrinkSelectionScreenState extends State<DrinkSelectionScreen> {
                       begin: Alignment.topLeft, // Start from top-left
                       end: Alignment.bottomRight, // End at bottom-right
                       colors: [
-                        habit[index] == selected
+                        gender[index] == selected
                             ? Colors.purple
                             : Colors.transparent, // Violet color
-                        habit[index] == selected
+                        gender[index] == selected
                             ? Colors.pink
                             : Colors.transparent, // Pink color
                       ],
@@ -122,21 +119,21 @@ class _DrinkSelectionScreenState extends State<DrinkSelectionScreen> {
                   child: ListTile(
                     contentPadding: const EdgeInsets.symmetric(
                       horizontal: 16,
-                      vertical: 2,
+                      vertical: 4,
                     ),
                     title: Text(
-                      habit[index],
+                      gender[index],
                       style: const TextStyle(
-                        fontSize: 15,
+                        fontSize: 16,
                         color: Colors.black87,
                       ),
                     ),
                     onTap: () {
                       setState(() {
-                        selected = habit[index];
+                        selected = gender[index];
                       });
                       // Handle country selection
-                      print('Selected country: $habit[index]}');
+                      print('Selected country: $gender[index]}');
                     },
                   ),
                 );
@@ -146,26 +143,19 @@ class _DrinkSelectionScreenState extends State<DrinkSelectionScreen> {
           SizedBox(
             height: 10.h,
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              ScaleButton(
-                onTap: () {},
-                child: Container(
-                  height: 60.h,
-                  width: 60.w,
-                  decoration:
-                      BoxDecoration(shape: BoxShape.circle, color: Colors.pink),
-                  child: Icon(
-                    Icons.arrow_forward_outlined,
-                    color: Colors.white,
-                  ),
-                ),
+          Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: 20.w,
+            ),
+            child: SizedBox(
+              height: 70.h,
+              child: DynamicButton.fromText(
+                text: "Next",
+                onPressed: () {
+                  Utils.go(context: context, screen: BirthdaySelectScreen());
+                },
               ),
-              SizedBox(
-                width: 20.w,
-              )
-            ],
+            ),
           ),
           SizedBox(
             height: MediaQuery.of(context).padding.bottom + 20.h,

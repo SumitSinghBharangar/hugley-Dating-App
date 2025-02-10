@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hugley/common/buttons/dynamic_button.dart';
-import 'package:hugley/features/profile_section/photo_selection_screen.dart';
+import 'package:hugley/features/auth/profile_section/photo_selection_screen.dart';
+
 import 'package:hugley/features/utils/utils.dart';
 
 class DisabilitiesSelectionScreen extends StatefulWidget {

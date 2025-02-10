@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hugley/common/buttons/scale_button.dart';
-import 'package:hugley/features/profile_section/select_country_screen.dart';
+import 'package:hugley/features/auth/profile_section/select_country_screen.dart';
+
 import 'package:hugley/features/utils/utils.dart';
 import 'package:pinput/pinput.dart';
 

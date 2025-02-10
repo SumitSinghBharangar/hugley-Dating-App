@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hugley/common/buttons/dynamic_button.dart';
-import 'package:hugley/features/profile_section/drink_selection_screen.dart';
+import 'package:hugley/features/auth/profile_section/drink_selection_screen.dart';
 import 'package:hugley/features/utils/utils.dart';
 
 class InterestsSelectionScreen extends StatefulWidget {
