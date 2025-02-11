@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:hugley/common/buttons/scale_button.dart';
+import 'package:hugley/features/notification/notification_screen.dart';
+import 'package:hugley/features/settings/help_support_screen.dart';
+import 'package:hugley/features/settings/setting_screen.dart';
+import 'package:hugley/features/utils/utils.dart';
 
 class HugleyProfileScreen extends StatefulWidget {
   const HugleyProfileScreen({super.key});
@@ -18,7 +23,9 @@ class _HugleyProfileScreenState extends State<HugleyProfileScreen> {
         centerTitle: true,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios, color: Colors.pink),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
         title: const Text(
           'Hugley',
@@ -30,8 +37,10 @@ class _HugleyProfileScreenState extends State<HugleyProfileScreen> {
         ),
         actions: [
           IconButton(
-            icon: const Icon(Icons.link, color: Colors.pink),
-            onPressed: () {},
+            icon: const Icon(Icons.settings, color: Colors.pink),
+            onPressed: () {
+              Utils.go(context: context, screen: SettingScreen());
+            },
           ),
         ],
       ),
@@ -45,7 +54,8 @@ class _HugleyProfileScreenState extends State<HugleyProfileScreen> {
                 backgroundColor: Colors.purple,
                 child: CircleAvatar(
                   radius: 48,
-                  backgroundImage: NetworkImage('https://placeholder.com/150'),
+                  backgroundImage: NetworkImage(
+                      'https://img.freepik.com/free-photo/young-caucasian-brunette-rocks-beach-with-closed-eyes_181624-37395.jpg?semt=ais_hybrid'),
                 ),
               ),
               const SizedBox(height: 8),
@@ -59,13 +69,18 @@ class _HugleyProfileScreenState extends State<HugleyProfileScreen> {
               const SizedBox(height: 24),
               _buildSettingItem('Edit Profile', Icons.person_outline,
                   onTap: () {}),
-              _buildSwitchItem(
-                'Notification',
-                Icons.notifications_none,
-                notificationsEnabled,
-                (value) {
-                  setState(() => notificationsEnabled = value);
+              ScaleButton(
+                onTap: () {
+                  Utils.go(context: context, screen: NotificationScreen());
                 },
+                child: _buildSwitchItem(
+                  'Notification',
+                  Icons.notifications_none,
+                  notificationsEnabled,
+                  (value) {
+                    setState(() => notificationsEnabled = value);
+                  },
+                ),
               ),
               _buildSwitchItem(
                 'Location',
@@ -77,8 +92,12 @@ class _HugleyProfileScreenState extends State<HugleyProfileScreen> {
               ),
               _buildSettingItem('Linked Accounts', Icons.link, onTap: () {}),
               const SizedBox(height: 24),
-              _buildSettingItem('Help Center', Icons.help_outline,
-                  onTap: () {}),
+              _buildSettingItem('Help Center', Icons.help_outline, onTap: () {
+                Utils.go(
+                  context: context,
+                  screen: HelpSupportScreen(),
+                );
+              }),
               _buildSettingItem('About Us', Icons.info_outline, onTap: () {}),
               _buildSettingItem('Logout', Icons.logout, onTap: () {}),
             ],
@@ -95,7 +114,7 @@ class _HugleyProfileScreenState extends State<HugleyProfileScreen> {
       decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(12),
-          border: Border.all(color: Color(0xFFECC1DA) )),
+          border: Border.all(color: Color(0xFFECC1DA))),
       child: ListTile(
         leading: Icon(icon, color: Colors.pink),
         title: Text(title),
