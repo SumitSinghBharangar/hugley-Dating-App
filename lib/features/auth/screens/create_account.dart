@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hugley/common/buttons/dynamic_button.dart';
 import 'package:hugley/common/buttons/scale_button.dart';
 import 'package:hugley/features/auth/screens/create_account_page.dart';
+import 'package:hugley/features/care_taker/add_caretaker_screen.dart';
 import 'package:hugley/features/utils/utils.dart';
 
 class CreateAccountScreen extends StatefulWidget {
@@ -75,7 +76,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
               onTap: () {
                 Utils.go(
                   context: context,
-                  screen: CreateAccountPage(),
+                  screen: AddCaretakerScreen(),
                 );
               },
               child: Container(

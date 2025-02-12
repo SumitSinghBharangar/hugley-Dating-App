@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hugley/features/management/management_list_screen.dart';
 import 'package:hugley/features/settings/add_face_id_screen.dart';
 import 'package:hugley/features/settings/add_finger_print_screen.dart';
 import 'package:hugley/features/settings/block_list_screen.dart';
 import 'package:hugley/features/settings/change_password_screen.dart';
 import 'package:hugley/features/settings/change_visivility_screen.dart';
 import 'package:hugley/features/utils/utils.dart';
-import 'package:iconsax/iconsax.dart';
 
 class SettingScreen extends StatefulWidget {
   const SettingScreen({super.key});
@@ -41,7 +41,12 @@ class _SettingScreenState extends State<SettingScreen> {
         centerTitle: true,
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Utils.go(
+                context: context,
+                screen: ManagementListScreen(),
+              );
+            },
             icon: Icon(
               Icons.settings,
               size: 28,

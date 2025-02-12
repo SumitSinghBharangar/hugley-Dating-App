@@ -88,7 +88,7 @@ class _DynamicButtonState extends State<DynamicButton> {
                     },
           child: AnimatedContainer(
             duration: const Duration(milliseconds: 300),
-            padding: const EdgeInsets.symmetric(vertical: 10),
+            padding: const EdgeInsets.symmetric(vertical: 15),
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 begin: Alignment.topLeft, // Start from top-left
