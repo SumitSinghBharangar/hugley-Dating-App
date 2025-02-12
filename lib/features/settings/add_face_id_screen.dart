@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hugley/common/buttons/scale_button.dart';
 
 class AddFaceIdScreen extends StatefulWidget {
   const AddFaceIdScreen({super.key});
@@ -55,20 +56,59 @@ class _AddFaceIdScreenState extends State<AddFaceIdScreen> {
               height: 20.h,
             ),
             Text(
-              "Authenticate using ",
+              "Authenticate using Facial Recognition",
               style: TextStyle(
                 color: Color(0xFFD07CBA),
-                fontSize: 26.sp,
+                fontSize: 32.sp,
                 fontWeight: FontWeight.bold,
               ),
             ),
             Text(
-              "Enter a new password below to change your password",
+              "add your face in order to provide an extra layer of security to the app",
               style: TextStyle(
                 color: Colors.grey,
                 fontSize: 20.sp,
               ),
             ),
+            SizedBox(
+              height: 80.h,
+            ),
+            Center(
+              child: ScaleButton(
+                onTap: () {},
+                child: Container(
+                  height: 140.h,
+                  width: 150.w,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage(
+                        "assets/images/button_bg.png",
+                      ),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Image.asset(
+                        "assets/images/face_icon.png",
+                        height: 40.h,
+                        width: 40.w,
+                        fit: BoxFit.cover,
+                      ),
+                      SizedBox(
+                        height: 10.h,
+                      ),
+                      Text(
+                        "FaceId",
+                        style: TextStyle(color: Colors.white),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            )
           ],
         ),
       ),

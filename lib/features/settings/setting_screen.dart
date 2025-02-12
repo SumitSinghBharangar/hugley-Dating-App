@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hugley/features/settings/add_face_id_screen.dart';
+import 'package:hugley/features/settings/add_finger_print_screen.dart';
 import 'package:hugley/features/settings/block_list_screen.dart';
 import 'package:hugley/features/settings/change_password_screen.dart';
 import 'package:hugley/features/settings/change_visivility_screen.dart';
@@ -72,12 +74,22 @@ class _SettingScreenState extends State<SettingScreen> {
             _buttonCard(
               "Add FingerPrint",
               Icons.fingerprint,
-              onTap: () {},
+              onTap: () {
+                Utils.go(
+                  context: context,
+                  screen: AddFingerPrintScreen(),
+                );
+              },
             ),
             _buttonCard(
               "Add Facial Recognition",
               Icons.face,
-              onTap: () {},
+              onTap: () {
+                Utils.go(
+                  context: context,
+                  screen: AddFaceIdScreen(),
+                );
+              },
             ),
             _buttonCard(
               "Visibility Setting",
