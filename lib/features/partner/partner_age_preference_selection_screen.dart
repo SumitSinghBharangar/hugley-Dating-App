@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hugley/common/buttons/scale_button.dart';
+import 'package:hugley/features/auth/profile_section/bio_screen.dart';
+import 'package:hugley/features/utils/utils.dart';
 
 class PartnerAgePreferenceSelectionScreen extends StatefulWidget {
   const PartnerAgePreferenceSelectionScreen({super.key});
@@ -167,10 +169,10 @@ class _PartnerAgePreferenceSelectionScreenState
               ),
               ScaleButton(
                 onTap: () {
-                  // Utils.go(
-                  //   context: context,
-                  //   screen: SelectPartnerDisabilityScreen(),
-                  // );
+                  Utils.go(
+                    context: context,
+                    screen: BioScreen(),
+                  );
                 },
                 child: Container(
                   height: 60.h,

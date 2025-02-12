@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hugley/features/auth/screens/splash_screen.dart';
+import 'package:hugley/features/care_taker/caretaker_request_screen.dart';
 
 void main() {
   runApp(const MyApp());

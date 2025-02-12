@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hugley/common/buttons/scale_button.dart';
+import 'package:hugley/features/care_taker/caretaker_request_screen.dart';
 import 'package:hugley/features/profile/hugley_profile.dart';
 import 'package:hugley/features/utils/utils.dart';
 
@@ -153,7 +154,7 @@ class _DrinkSelectionScreenState extends State<DrinkSelectionScreen> {
             children: [
               ScaleButton(
                 onTap: () {
-                  Utils.go(context: context, screen: HugleyProfileScreen());
+                  Utils.go(context: context, screen: CaretakerRequestScreen());
                 },
                 child: Container(
                   height: 60.h,
