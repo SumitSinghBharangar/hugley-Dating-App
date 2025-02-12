@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hugley/common/buttons/dynamic_button.dart';
-import 'package:hugley/features/auth/profile_section/photo_selection_screen.dart';
+
+import 'package:hugley/features/partner/partner_age_preference_selection_screen.dart';
 
 import 'package:hugley/features/utils/utils.dart';
 
-class DisabilitiesSelectionScreen extends StatefulWidget {
-  const DisabilitiesSelectionScreen({super.key});
+class SelectPartnerDisabilityScreen extends StatefulWidget {
+  const SelectPartnerDisabilityScreen({super.key});
 
   @override
-  State<DisabilitiesSelectionScreen> createState() =>
-      _DisabilitiesSelectionScreenState();
+  State<SelectPartnerDisabilityScreen> createState() =>
+      _SelectPartnerDisabilityScreenState();
 }
 
-class _DisabilitiesSelectionScreenState
-    extends State<DisabilitiesSelectionScreen> {
+class _SelectPartnerDisabilityScreenState
+    extends State<SelectPartnerDisabilityScreen> {
   final TextEditingController _searchController = TextEditingController();
   Set<String> selectedDisabilities = {};
 
@@ -76,20 +77,20 @@ class _DisabilitiesSelectionScreenState
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              'Choose Your\nIntellectual Disabilities',
+            Text(
+              'Your Preferred Partner Intellectual Disabilities',
               style: TextStyle(
-                fontSize: 24,
+                fontSize: 26.sp,
                 fontWeight: FontWeight.bold,
                 color: Color(0xFFD782B7),
               ),
             ),
-            const SizedBox(height: 8),
-            const Text(
-              'Select the types of intellectual disabilities you work with',
+            SizedBox(height: 8.h),
+            Text(
+              'Select the types of intellectual disabilities you want to explore with.',
               style: TextStyle(
                 color: Colors.grey,
-                fontSize: 14,
+                fontSize: 16.sp,
               ),
             ),
             const SizedBox(height: 16),
@@ -162,7 +163,7 @@ class _DisabilitiesSelectionScreenState
                 onPressed: () {
                   Utils.go(
                     context: context,
-                    screen: PhotoSelectionScreen(),
+                    screen: PartnerAgePreferenceSelectionScreen(),
                   );
                 },
               ),

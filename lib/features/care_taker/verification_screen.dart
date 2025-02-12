@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hugley/common/buttons/dynamic_button.dart';
+import 'package:hugley/features/partner/partner_gender_selection_screen.dart';
+import 'package:hugley/features/utils/utils.dart';
 import 'package:pinput/pinput.dart';
 
 class CaretakerVerificationScreen extends StatefulWidget {
@@ -87,10 +89,10 @@ class _CaretakerVerificationScreenState
               focusedPinTheme: focusedPinTheme, // Style when a box is focused
               showCursor: true, // Hide the cursor
               onChanged: (value) {
-                print('Changed: $value'); // Callback when the value changes
+                // Callback when the value changes
               },
               onCompleted: (pin) {
-                print('Completed: $pin'); // Callback when the PIN is completed
+                // Callback when the PIN is completed
               },
             ),
             SizedBox(
@@ -113,7 +115,12 @@ class _CaretakerVerificationScreenState
                 width: 300.w,
                 child: DynamicButton.fromText(
                   text: "Verify",
-                  onPressed: () {},
+                  onPressed: () {
+                    Utils.go(
+                      context: context,
+                      screen: PartnerGenderSelectionScreen(),
+                    );
+                  },
                 ),
               ),
             )

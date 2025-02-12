@@ -245,7 +245,16 @@ class _BirthdaySelectScreenState extends State<BirthdaySelectScreen> {
                           height: 60.h,
                           width: 60.w,
                           decoration: BoxDecoration(
-                              shape: BoxShape.circle, color: Colors.pink),
+                            gradient: LinearGradient(
+                              begin: Alignment.topLeft, // Start from top-left
+                              end: Alignment.bottomRight, // End at bottom-right
+                              colors: [
+                                Color(0xFF9C27B0), // Purple
+                                Color(0xFFE91E63), // Pink color
+                              ],
+                            ),
+                            shape: BoxShape.circle,
+                          ),
                           child: Icon(
                             Icons.arrow_forward_outlined,
                             color: Colors.white,
