@@ -24,9 +24,9 @@ class _RootScreenState extends State<RootScreen> {
     const MatchScreen(),
     const MatchScreen(),
   ];
-  int selectedIndex = 0;
+  int selectedIndex = 2;
   final PageStorageBucket bucket = PageStorageBucket();
-  Widget currentScreen = const MatchScreen();
+  Widget currentScreen = const DatingAppHome();
 
   @override
   Widget build(BuildContext context) {

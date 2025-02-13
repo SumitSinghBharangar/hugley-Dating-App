@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hugley/common/buttons/scale_button.dart';
+import 'package:hugley/features/home/root_screen.dart';
+import 'package:hugley/features/utils/utils.dart';
 
 class NotificationPermissionScreen extends StatefulWidget {
   const NotificationPermissionScreen({super.key});
@@ -53,6 +55,10 @@ class _NotificationPermissionScreenState
                         setState(() {
                           isAllow = false;
                         });
+                        Utils.go(
+                          context: context,
+                          screen: RootScreen(),
+                        );
                       },
                 child: AnimatedContainer(
                   width: 300.w,
@@ -97,6 +103,10 @@ class _NotificationPermissionScreenState
                         setState(() {
                           isAllow = true;
                         });
+                        Utils.go(
+                          context: context,
+                          screen: RootScreen(),
+                        );
                       },
                 child: AnimatedContainer(
                   width: 300.w,
