@@ -41,52 +41,57 @@ class _BioScreenState extends State<BioScreen> {
         padding: EdgeInsets.symmetric(
           horizontal: 22.w,
         ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(
-              height: 30.h,
-            ),
-            Text(
-              'Add a Bio',
-              style: TextStyle(
-                fontSize: 30.sp,
-                fontWeight: FontWeight.bold,
-                color: Color(0xFFD782B7),
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                height: 30.h,
               ),
-            ),
-            Text(
-              "Prompt a few lines about yourself which others wil see in order to know you",
-              style: TextStyle(
-                color: Colors.grey,
-              ),
-            ),
-            SizedBox(
-              height: 20.h,
-            ),
-            BioTextField(
-              maxLength: 500,
-              placeholder: "Your Bio",
-            ),
-            SizedBox(
-              height: 40.h,
-            ),
-            Center(
-              child: SizedBox(
-                width: 300,
-                child: DynamicButton.fromText(
-                  text: "Proceed",
-                  onPressed: () {
-                    Utils.go(
-                      context: context,
-                      screen: NotificationPermissionScreen(),
-                    );
-                  },
+              Text(
+                'Add a Bio',
+                style: TextStyle(
+                  fontSize: 30.sp,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xFFD782B7),
                 ),
               ),
-            ),
-          ],
+              Text(
+                "Prompt a few lines about yourself which others wil see in order to know you",
+                style: TextStyle(
+                  color: Colors.grey,
+                ),
+              ),
+              SizedBox(
+                height: 20.h,
+              ),
+              BioTextField(
+                maxLength: 500,
+                placeholder: "Your Bio",
+              ),
+              SizedBox(
+                height: 40.h,
+              ),
+              Center(
+                child: SizedBox(
+                  width: 300,
+                  child: DynamicButton.fromText(
+                    text: "Proceed",
+                    onPressed: () {
+                      Utils.go(
+                        context: context,
+                        screen: NotificationPermissionScreen(),
+                      );
+                    },
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 20.h,
+              ),
+            ],
+          ),
         ),
       ),
     );

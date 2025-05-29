@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hugley/common/buttons/scale_button.dart';
 
 import 'package:hugley/features/home/swipe_screen.dart';
 import 'package:hugley/features/match/match_screen.dart';
 import 'package:hugley/features/messages/message_list_screen.dart';
+import 'package:hugley/features/notification/notification_screen.dart';
+import 'package:hugley/features/profile/hugley_profile.dart';
 import 'package:iconsax/iconsax.dart';
 
 class RootScreen extends StatefulWidget {
@@ -21,8 +22,8 @@ class _RootScreenState extends State<RootScreen> {
     const MatchScreen(),
     const MessageListScreen(),
     const DatingAppHome(),
-    const MatchScreen(),
-    const MatchScreen(),
+    const NotificationScreen(),
+    const HugleyProfileScreen(),
   ];
   int selectedIndex = 2;
   final PageStorageBucket bucket = PageStorageBucket();
@@ -124,7 +125,7 @@ class _RootScreenState extends State<RootScreen> {
                     scale: .97,
                     onTap: () {
                       setState(() {
-                        currentScreen = const MatchScreen();
+                        currentScreen = const NotificationScreen();
                         selectedIndex = 3;
                       });
                     },
@@ -143,7 +144,7 @@ class _RootScreenState extends State<RootScreen> {
                     scale: .97,
                     onTap: () {
                       setState(() {
-                        currentScreen = const MatchScreen();
+                        currentScreen = const HugleyProfileScreen();
                         selectedIndex = 4;
                       });
                     },

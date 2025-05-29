@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hugley/common/widgets/profile_card.dart';
-import 'package:iconsax/iconsax.dart';
 
 class MatchScreen extends StatefulWidget {
   const MatchScreen({super.key});

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hugley/common/buttons/scale_button.dart';
-import 'package:hugley/features/profile/hugley_profile.dart';
+import 'package:hugley/features/home/root_screen.dart';
+
 import 'package:hugley/features/utils/utils.dart';
 
 class CaretakerRequestScreen extends StatefulWidget {
@@ -31,7 +32,7 @@ class _CaretakerRequestScreenState extends State<CaretakerRequestScreen> {
               onTap: () {
                 Utils.go(
                   context: context,
-                  screen: HugleyProfileScreen(),
+                  screen: RootScreen(),
                 );
               },
               child: Text(
@@ -109,7 +110,7 @@ class _CaretakerRequestScreenState extends State<CaretakerRequestScreen> {
                         onTap: () {
                           Utils.go(
                             context: context,
-                            screen: HugleyProfileScreen(),
+                            screen: RootScreen(),
                           );
                         },
                         child: Container(
@@ -136,7 +137,7 @@ class _CaretakerRequestScreenState extends State<CaretakerRequestScreen> {
                         onTap: () {
                           Utils.go(
                             context: context,
-                            screen: HugleyProfileScreen(),
+                            screen: RootScreen(),
                           );
                         },
                         child: Container(
